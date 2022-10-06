@@ -1,0 +1,79 @@
+The socket API
+
+-       A socket API provides a programming construct termed a socket. 
+
+-       A process wishing to communicate with another process must create an instance, or instantiate, such a construct
+
+-       The two processes then issues operations provided by the API to send and receive data.
+
+Connection-oriented & connectionless datagram socket
+
+A socket programming construct can make use of either the UDP or TCP protocol. 
+
+-        Sockets that use UDP for transport are known as datagram sockets
+
+-        Sockets that use TCP are termed stream sockets.
+
+-        TCP sockets (implemented by the Java Socket class)
+
+-        UDP sockets (implemented by the Java DatagramSocket class)
+
+-       Datagram sockets can support both connectionless and connection-oriented communication at the application layer.
+
+TCP and UDP play the same role, but do it differently
+
+-        Both receive transport protocol packets and pass along their contents to the Presentation Layer.
+
+-        TCP divides messages into packets (datagrams) and reassembles them in the correct sequence at the receiving end.
+
+-       It also handles requesting retransmission of missing packets.
+
+-       With TCP, the upper-level layers have much less to worry about.
+
+-        UDP doesn't provide assembly and retransmission requesting features.
+
+-       It simply passes packets along.
+
+-       The upper layers have to make sure that the message is complete and assembled in correct sequence.
+
+The following SOCKET_API calls are used by the server:
+
+SOCKET
+    Obtains a socket to read from or write to.
+BIND
+    Associates a socket with a port number.
+LISTEN
+    Tells TCP⁄IP that this process is listening for connections on this socket.
+SELECT
+    Waits for activity on a socket.
+ACCEPT
+    Accepts a connection from a client.
+
+The following calls are used by a concurrent server to pass the socket from the parent server task (Listener) to the child server task (user-written application).
+
+GIVESOCKET
+    Gives a socket to a child server task.
+TAKESOCKET
+    Accepts a socket from a parent server task.
+GETCLIENTID
+    Optionally used by the parent server task to determine its own address space name (if unknown) prior to issuing the GIVESOCKET.
+
+The following SOCKET_API calls are used by the client:
+
+SOCKET
+    Allocates a socket to read from or write to.
+CONNECT
+    Allows a client to open a connection to a server’s port.
+
+The following calls are used by both the client and the server:
+
+WRITE
+    Sends data to the process on the other host.
+READ
+    Receives data from the other host.
+CLOSE
+    Terminates a connection, deallocating the socket.
+
+
+
+

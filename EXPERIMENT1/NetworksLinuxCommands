@@ -1,0 +1,66 @@
+The list of the linux commands are :-
+
+(a) ifconfig - It is used to initialize an interface, assign IP Address to interface and enable or disable interface on demand.
+- "ifconfig eth0" command only shows specific interface details like IP Address, MAC Address etc. 
+- "ifconfig eth0 -a" displays all the available interface details even if it has been disabled.
+- "ifconfig eth0 IPADDRESS netmask GATEWAY" is used to assigning an IP Address and Gateway to the interface
+- "ifup eth0" is used to enable any specific interface
+- "ifdown eth0' is used to disable any specific interface
+- A maximum transmission unit (MTU) is the largest size packet or frame, specified in octets (eight-bit bytes), that can be sent in a packet- or frame-based network such as the Internet. "ifconfig eth 0 mtu ----" is used to set the MTU size
+- A promiscuous mode is a mode for a wired network interface controller (NIC) or wireless network interface controller (WNIC) that causes the controller to pass all traffic. "inconfig eth0 - promisc" sets the interface in Promiscous mode
+
+(b) ping- It is the best way to test connectivity between two nodes.   
+- "ping IPADDRESS" is used to ping the host name of that IP Address
+- The ping command will keep executing until interrupted. "ping -c N IPADDRESS" will execute N times before stopping.
+
+(c) traceroute - It is a network troubleshooting utility.
+- "traceroute IPADDRESS" is used to trace rout to global DNS server IP Address and also to show the path that the packet is travelling.
+
+(d) netstat - It displays connection info, routing table information etc.
+-  netstat -rn is used to display routing table information
+- netstat -a displayes all active network connections
+- netstat -s displays summary statistics for each protocol that is currently running on the host
+
+(e) dig - It is used to troubleshoot DNS related query.
+- "dig IPADDRESS" is used for query DNS related information
+
+(f) nslookup - It is also used to find out DNS related query
+- "nslookup IPADDRESS" is used
+
+(g) route - It shows the routing table and also manipulates the ip routing table.
+- "route" shows the routing table
+- "route add -net ....... gw ........." is used to add routes
+- "route del -net ....... gw ........." is used to delete routes
+- "route add default gw ........" is used to add a default gateway 
+
+(h) host - It is used to find name to IP or IP to name in IPv4 or IPv6 and also query DNS records.
+- "host website" is used to find the address
+- "host -t website" is used to find out DNS resource records
+
+(i) arp - It is useful to view / add the contents of the kernel’s ARP tables. 
+- "arp -e" is used to see the default table
+
+(j) ethtool eth0 - t is to view, setting speed and duplex of your Network Interface Card
+- "ethtool eth0" is used
+
+(k) iwconfig - It is used to configure a wireless network interface. 
+- "iwconfig [interface]" is used to set the basic Wi-Fi details like SSID channel and encryption.
+
+(l) hostname - It is used to identify the host in a network
+- "hostname" is used
+
+(m) system-config-network - It is used to generate a prompt to configure network setting and a nice Graphical User Interface (GUI) which may also use to configure IP Address, Gateway, DNS etc. 
+- "system-config-network" is used
+
+(n) arp - It is used to display the content of the ARP cache
+- arp -a is used
+- arp -d IPADDRESS deletes the entry with the given IPADDRESS
+- arp -s IPADDRESS MACADDRESS adds a static entry to the ARP cache that  is never overwritten by network events. 
+
+(o) ip address add IPADDRESS/xx dev INTERFACE adds IPADDRESS with prefix xx to interface
+- ip address del IPADDRESS/xx dev INTERFACE deletes IPADDRESS with prefix xx on interface
+- ip address flush dev INTERFACE deletes all statistically assigned IP addresses for dev INTERFACE
+- ip address show dev INTERFACE shows all assigned IP addresses for dev interface
+
+(p) - echoping -v -s xxxx IPADDR pings a host with IP address IPADDR using TCP, -v is for verbose and -s is for size of packet
+- echoping -v -u -s xxxx IPADDR ings a host with IP address IPADDR where -u indicates using UDP instead of TCP, -v is for verbose and -s is for packet size
